@@ -2,6 +2,7 @@ libfastjson.so.4:fjson_global_do_case_sensitive_comparison
 libfastjson.so.4:fjson_global_set_printbuf_initial_size
 libfastjson.so.4:fjson_object_array_add
 libfastjson.so.4:fjson_object_array_bsearch
+libfastjson.so.4:fjson_object_array_del_idx
 libfastjson.so.4:fjson_object_array_get_idx
 libfastjson.so.4:fjson_object_array_length
 libfastjson.so.4:fjson_object_array_put_idx
@@ -21,6 +22,7 @@ libfastjson.so.4:fjson_object_get_member_count
 libfastjson.so.4:fjson_object_get_string
 libfastjson.so.4:fjson_object_get_string_len
 libfastjson.so.4:fjson_object_get_type
+libfastjson.so.4:fjson_object_get_uint
 libfastjson.so.4:fjson_object_is_type
 libfastjson.so.4:fjson_object_iter_begin
 libfastjson.so.4:fjson_object_iter_end
