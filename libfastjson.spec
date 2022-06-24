@@ -4,13 +4,12 @@
 #
 Name     : libfastjson
 Version  : 0.99.9
-Release  : 4
+Release  : 5
 URL      : https://github.com/rsyslog/libfastjson/archive/v0.99.9/libfastjson-0.99.9.tar.gz
 Source0  : https://github.com/rsyslog/libfastjson/archive/v0.99.9/libfastjson-0.99.9.tar.gz
 Summary  : a fast JSON implementation in C
 Group    : Development/Tools
 License  : MIT
-Requires: libfastjson-filemap = %{version}-%{release}
 Requires: libfastjson-lib = %{version}-%{release}
 Requires: libfastjson-license = %{version}-%{release}
 
@@ -28,19 +27,10 @@ Requires: libfastjson = %{version}-%{release}
 dev components for the libfastjson package.
 
 
-%package filemap
-Summary: filemap components for the libfastjson package.
-Group: Default
-
-%description filemap
-filemap components for the libfastjson package.
-
-
 %package lib
 Summary: lib components for the libfastjson package.
 Group: Libraries
 Requires: libfastjson-license = %{version}-%{release}
-Requires: libfastjson-filemap = %{version}-%{release}
 
 %description lib
 lib components for the libfastjson package.
@@ -66,7 +56,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1644262676
+export SOURCE_DATE_EPOCH=1656046180
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -94,7 +84,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1644262676
+export SOURCE_DATE_EPOCH=1656046180
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libfastjson
 cp %{_builddir}/libfastjson-0.99.9/COPYING %{buildroot}/usr/share/package-licenses/libfastjson/31c772b6e4ff5ccc00b3565e6dbdaeea24aab266
@@ -102,7 +92,7 @@ pushd ../buildavx2/
 %make_install_v3
 popd
 %make_install
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -119,15 +109,13 @@ popd
 /usr/lib64/libfastjson.so
 /usr/lib64/pkgconfig/libfastjson.pc
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-libfastjson
-
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfastjson.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfastjson.so.4
+/usr/lib64/glibc-hwcaps/x86-64-v3/libfastjson.so.4.3.0
 /usr/lib64/libfastjson.so.4
 /usr/lib64/libfastjson.so.4.3.0
-/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
