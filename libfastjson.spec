@@ -4,7 +4,7 @@
 #
 Name     : libfastjson
 Version  : 0.99.9
-Release  : 5
+Release  : 6
 URL      : https://github.com/rsyslog/libfastjson/archive/v0.99.9/libfastjson-0.99.9.tar.gz
 Source0  : https://github.com/rsyslog/libfastjson/archive/v0.99.9/libfastjson-0.99.9.tar.gz
 Summary  : a fast JSON implementation in C
@@ -56,7 +56,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656046180
+export SOURCE_DATE_EPOCH=1656129824
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -84,7 +84,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1656046180
+export SOURCE_DATE_EPOCH=1656129824
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libfastjson
 cp %{_builddir}/libfastjson-0.99.9/COPYING %{buildroot}/usr/share/package-licenses/libfastjson/31c772b6e4ff5ccc00b3565e6dbdaeea24aab266
