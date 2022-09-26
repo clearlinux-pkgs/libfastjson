@@ -4,7 +4,7 @@
 #
 Name     : libfastjson
 Version  : 0.99.9
-Release  : 9
+Release  : 10
 URL      : https://github.com/rsyslog/libfastjson/archive/v0.99.9/libfastjson-0.99.9.tar.gz
 Source0  : https://github.com/rsyslog/libfastjson/archive/v0.99.9/libfastjson-0.99.9.tar.gz
 Summary  : a fast JSON implementation in C
