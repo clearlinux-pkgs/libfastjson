@@ -1,5 +1,5 @@
 PKG_NAME := libfastjson
-URL = https://github.com/rsyslog/libfastjson/archive/v0.99.9.1/libfastjson-0.99.9.1.tar.gz
+URL = https://github.com/rsyslog/libfastjson/archive/v1.2304.0/libfastjson-1.2304.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
