@@ -5,7 +5,7 @@
 #
 Name     : libfastjson
 Version  : 1.2304.0
-Release  : 14
+Release  : 15
 URL      : https://github.com/rsyslog/libfastjson/archive/v1.2304.0/libfastjson-1.2304.0.tar.gz
 Source0  : https://github.com/rsyslog/libfastjson/archive/v1.2304.0/libfastjson-1.2304.0.tar.gz
 Summary  : a fast JSON implementation in C
@@ -60,12 +60,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1681743907
+export SOURCE_DATE_EPOCH=1682995089
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 %autogen --disable-static
 make  %{?_smp_mflags}
 
@@ -88,7 +88,7 @@ cd ../buildavx2;
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1681743907
+export SOURCE_DATE_EPOCH=1682995089
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libfastjson
 cp %{_builddir}/libfastjson-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libfastjson/31c772b6e4ff5ccc00b3565e6dbdaeea24aab266 || :
@@ -103,6 +103,7 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
+/V3/usr/lib64/libfastjson.so
 /usr/include/libfastjson/atomic.h
 /usr/include/libfastjson/json.h
 /usr/include/libfastjson/json_object.h
@@ -110,14 +111,13 @@ popd
 /usr/include/libfastjson/json_object_private.h
 /usr/include/libfastjson/json_tokener.h
 /usr/include/libfastjson/json_util.h
-/usr/lib64/glibc-hwcaps/x86-64-v3/libfastjson.so
 /usr/lib64/libfastjson.so
 /usr/lib64/pkgconfig/libfastjson.pc
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/glibc-hwcaps/x86-64-v3/libfastjson.so.4
-/usr/lib64/glibc-hwcaps/x86-64-v3/libfastjson.so.4.3.0
+/V3/usr/lib64/libfastjson.so.4
+/V3/usr/lib64/libfastjson.so.4.3.0
 /usr/lib64/libfastjson.so.4
 /usr/lib64/libfastjson.so.4.3.0
 
